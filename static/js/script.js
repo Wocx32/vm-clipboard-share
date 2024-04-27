@@ -23,7 +23,7 @@ var interval = setInterval(function() {
     }).then(response => {
         return response.json()
     }).then(data => {
-        if (data.clipboard && data.clipboard !== document.getElementById("clipboard").value) {
+        if (data.clipboard !== document.getElementById("clipboard").value) {
             document.getElementById("clipboard").value = data.clipboard
         }
     }).catch(error => {
