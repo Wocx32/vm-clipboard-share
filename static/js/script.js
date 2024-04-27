@@ -47,3 +47,17 @@ document.getElementById("copy").addEventListener("click", function() {
         button.classList.remove("contrast")
     }, 500)
 })
+
+
+document.getElementById("clear").addEventListener("click", function() {
+    document.getElementById("clipboard").value = ""
+    fetch('/paste', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({clipboard: ""})
+    }).then(response => {
+        return response.json()
+    })
+})
